@@ -97,21 +97,37 @@ options:
 '''
 
 EXAMPLES = '''
-# Ensure that the vhost /vhost exists and has tracing enabled.
-- rabbitmq_vhost:
+# Ensure that the user 'another_user' exists and the vhost has the permissions
+- rabbitmq_user:
     login_host: rabbitmq.example.com
     login_user: myuser
     login_password: mypassword
-    name: /vhost
+    name: another_user
+    password: user_pass
     state: present
-    tracing: true
+    vhost: /test
+    configure_priv: '.*alpha.*'
 
-# Ensure that the vhost /test is not in RabbitMQ
-- rabbitmq_vhost:
+# Ensure that the user another_user has all the permissions
+- rabbitmq_user:
     login_host: rabbitmq.example.com
     login_user: myuser
     login_password: mypassword
-    name: /test
+    name: another_user
+    password: user_pass
+    state: present
+    permissions:
+      - vhost: /test
+        configure_priv: '.*alpha.*'
+      - vhost: /test2
+        read_priv: '.*beta.*'
+
+# Ensure that the user another_user is not present
+- rabbitmq_user:
+    login_host: rabbitmq.example.com
+    login_user: myuser
+    login_password: mypassword
+    name: another_user
     state: absent
 '''
 
