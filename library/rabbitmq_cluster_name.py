@@ -101,7 +101,7 @@ class RabbitMQClusterName(RabbitMQ):
 
 def main():
     """Call the RabbitMQQueue module."""
-    RabbitMQQueue()
+    RabbitMQClusterName()
 
 
 if __name__ == "__main__":
