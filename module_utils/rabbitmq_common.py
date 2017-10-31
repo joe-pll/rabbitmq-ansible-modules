@@ -64,6 +64,7 @@ class RabbitMQ(object):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         rabbitmq_auth = HTTPBasicAuth(self.login_user, self.login_password)
         scheme = 'https' if self.ssl_enabled else 'http'
+        headers['Content-type'] = 'application/json'
         url = "{scheme}://{host}:{port}{path}".format(scheme=scheme,
                                                       host=self.login_host,
                                                       port=self.login_port,
