@@ -81,7 +81,7 @@ class RabbitMQClusterName(RabbitMQ):
 
     def set_cluster_name(self):
         cluster_name = dict(name=self.name)
-        request = self.rabbitmq_request('get',
+        request = self.rabbitmq_request('put',
                                         path='/api/cluster-name',
                                         payload=cluster_name)
         self.error_handling(request.status_code)
