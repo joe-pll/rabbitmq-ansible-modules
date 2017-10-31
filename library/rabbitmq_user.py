@@ -141,7 +141,7 @@ class RabbitMQUser(RabbitMQ):
         self.arguments_spec = dict(
             configure_priv=dict(type='str', default='.*', required=False),
             name=dict(type='str', required=True, aliases=['user']),
-            password=dict(type='str', required=False, default=''),
+            password=dict(type='str', required=False, default='', no_log=True),
             permissions=dict(type='list', default=[], required=False),
             read_priv=dict(type='str', default='.*', required=False),
             state=dict(type='str', default='present', choices=['present', 'absent']),
