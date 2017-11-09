@@ -62,7 +62,7 @@ options:
       - Whether or not there must be a SSL certificate verification
   state:
     description:
-      - The state of vhost
+      - The state of user
     default: present
     choices: [present, absent]
   tags:
