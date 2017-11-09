@@ -1,9 +1,0 @@
----
-galaxy_info:
-  author: Giuseppe Pellegrino
-  description: A list of modules for Ansible to communicate with RabbitMQ
-  licence: Apache License 2.0
-  min_ansible_version: 2.2
-  categories:
-    - rabbitmq
-dependencies: []
